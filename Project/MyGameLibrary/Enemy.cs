@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code {
     /// THis is the image for an enemy
     /// </summary>
     public Image Img { get; set; }
+    //used to handle the enemies overworld image
     public PictureBox PictureBox { get; set; }
 
     /// <summary>
@@ -27,7 +28,7 @@ namespace Fall2020_CSC403_Project.code {
     public Enemy(Vector2 initPos, Collider collider, PictureBox picturebox) : base(initPos, collider) {
             PictureBox = picturebox;
     }
-
+    //removes the enemy from the overworld
     public override void Die()
     {
         DisableCollider();

@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code {
     private float strength;
 
     public event Action<int> AttackEvent;
-
+    //function for any deriving classes for death implementation
     public virtual void Die() { }
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {

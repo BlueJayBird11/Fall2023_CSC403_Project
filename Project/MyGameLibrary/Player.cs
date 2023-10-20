@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project.code {
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
 
     }
-
+    //return an integer cooresponding to the number of movement inputs
     public int MovementValue()
     {
             int movementCount = 0;

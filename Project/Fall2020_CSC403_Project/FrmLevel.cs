@@ -56,10 +56,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      if(player.MovementValue() <= 1)
-      {
+            Console.WriteLine(player.MovementValue());
+            if (player.MovementValue() <= 1)
+            {
                 player.ResetMoveSpeed();
-      }
+            }
             switch (e.KeyCode)
             {
                 case Keys.Left:
