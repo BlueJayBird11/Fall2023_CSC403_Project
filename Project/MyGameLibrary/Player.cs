@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
-  public class Player : BattleCharacter {
-    public bool[] _movementBools = new bool[] { false, false, false, false };
+  public class Player : BattleCharacter
+    {
+        public bool _inBattle { get; set; }
+        public bool[] _movementBools = new bool[] { false, false, false, false };
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
 
     }

@@ -26,6 +26,7 @@ namespace Fall2020_CSC403_Project {
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
+      player._inBattle = true;
 
       // show health
       UpdateHealthBars();
@@ -73,10 +74,12 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health <= 0) {
         enemy.Die();
         instance = null;
+        player._inBattle = false;
         Close();
       }
       else if (player.Health <= 0) {
         player.Die();
+        player._inBattle = false;
         instance = null;
         Close();
       }

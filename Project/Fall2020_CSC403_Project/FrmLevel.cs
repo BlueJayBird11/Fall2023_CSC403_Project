@@ -141,6 +141,10 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+       if (player._inBattle)
+       {
+           return;
+       }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
