@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project.code {
         public PictureBox PictureBox { get; set; }
         public Label DialogueLabel { get; set; }
 
-        public bool IsShown = true;
+        public bool IsShown = false;
         public bool IsTyping = false;
 
         string defaultText = "default line";

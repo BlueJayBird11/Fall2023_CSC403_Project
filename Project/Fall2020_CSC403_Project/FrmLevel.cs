@@ -232,10 +232,6 @@ namespace Fall2020_CSC403_Project {
 
                     player._movementBools[3] = true;
                     break;
-
-                case Keys.Space:
-                    ContinueDialogue();
-                    break;
           
         default:
           player.ResetMoveSpeed();
