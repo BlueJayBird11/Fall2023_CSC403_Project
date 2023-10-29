@@ -7,7 +7,6 @@ using System.Security.Principal;
 using System.Windows.Forms;
 using System.Xml.Schema;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project
 {
@@ -17,8 +16,6 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private AudioManager audioManager;
         private Player player;
-        SoundPlayer soundPlayer1 = new SoundPlayer("sound1.wav");
-        SoundPlayer soundPlayer2 = new SoundPlayer("sound2.wav");
 
         private FrmBattle()
         {
@@ -27,18 +24,15 @@ namespace Fall2020_CSC403_Project
             audioManager = AudioManager.Instance;
             audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
             audioManager.AddSound("battle_music", new SoundPlayer(Resources.battle_music));
-            audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
             audioManager.AddSound("enemy_interact_1", new SoundPlayer(Resources.enemy_interact_1));
-            audioManager.AddSound("enemy_interact_2", new SoundPlayer(Resources.enemy_interact_2));
         }
 
         public void Setup()
         {
-            audioManager.AsyncPlay(soundPlayer1);
-            //audioManager.PlaySound("enemy_interact_1");
-            //Task.Delay(2000);
+            audioManager.PlaySound("enemy_interact_1");
             Thread.Sleep(2000);
             audioManager.PlaySoundLoop("battle_music");
+
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
@@ -58,12 +52,8 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
   
-
-            //Thread.Sleep(2000);
             picBossBattle.Visible = true;
             tmrFinalBattle.Enabled = true;
-            //Task.Delay(2000);
-            audioManager.PlaySound("enemy_interact_2");
             audioManager.PlaySound("battle_music");
         }
 
