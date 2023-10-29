@@ -4,14 +4,15 @@ using System.Linq;
 using System.Media;
 using System.Resources;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace Fall2020_CSC403_Project.code
 {
     public class AudioManager
     {
         private static AudioManager instance;
-        private Dictionary<string, SoundPlayer> soundPlayer; 
+        private Dictionary<string, SoundPlayer> soundPlayer;
 
         private AudioManager() { 
             soundPlayer = new Dictionary<string, SoundPlayer>();
@@ -25,6 +26,7 @@ namespace Fall2020_CSC403_Project.code
                 soundPlayer.Add(soundName, soundPath);
             }
         }
+
         public static AudioManager Instance
         {
             get

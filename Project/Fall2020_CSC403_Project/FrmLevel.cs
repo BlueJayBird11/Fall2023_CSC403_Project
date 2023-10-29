@@ -42,6 +42,8 @@ namespace Fall2020_CSC403_Project {
       audioManager = AudioManager.Instance;
       audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
       audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
+      audioManager.AddSound("enemy_interact_1", new SoundPlayer(Resources.enemy_interact_1));
+      audioManager.AddSound("enemy_interact_2", new SoundPlayer(Resources.enemy_interact_2));
       audioManager.PlaySoundLoop("overworld_music");
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
@@ -188,6 +190,7 @@ namespace Fall2020_CSC403_Project {
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
+      audioManager.PlaySound("enemy_interact_2");
       audioManager.PlaySound("final_battle");
       frmBattle.SetupForBossBattle();
       }
