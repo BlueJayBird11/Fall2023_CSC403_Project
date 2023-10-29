@@ -24,6 +24,7 @@ namespace Fall2020_CSC403_Project
             audioManager = AudioManager.Instance;
             audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
             audioManager.AddSound("battle_music", new SoundPlayer(Resources.battle_music));
+            audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
             audioManager.AddSound("enemy_interact_1", new SoundPlayer(Resources.enemy_interact_1));
         }
 
