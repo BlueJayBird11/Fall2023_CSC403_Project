@@ -18,6 +18,9 @@ namespace Fall2020_CSC403_Project.code
         int[] shownPoint = { 149, 567 };
         int[] hidePoint = { 149, 1000 };
 
+        // item list
+        Item[] items = { };
+
         public Inventory(Vector2 initPos, Collider collider, PictureBox picturebox) : base(initPos, collider)
         {
             PictureBox = picturebox;
@@ -47,6 +50,12 @@ namespace Fall2020_CSC403_Project.code
             {
                 ShowBox();
             }
+        }
+
+        public void DescribeItem()
+        {
+            // Say the item name and description using the DialogueBox
+            ;
         }
     }
 }
