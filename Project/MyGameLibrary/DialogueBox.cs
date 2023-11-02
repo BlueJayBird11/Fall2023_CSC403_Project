@@ -37,7 +37,6 @@ namespace Fall2020_CSC403_Project.code {
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
             DialogueLabel.Location = new Point(labelShownPoint[0], labelShownPoint[1]);
             IsShown = true;
-            // TypeText(defaultText);
         }
 
         public void HideBox() {

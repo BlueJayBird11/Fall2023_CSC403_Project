@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code
         private int lineNumber = 0;
         public bool happened = false; 
         public Enemy enemy;
-        // DialogueBox nextDialogueBox = null;
+
         public Dialogue(string[] lines, int[] letterSpeeds, Enemy enemy)
         {
             this.lines = lines;
