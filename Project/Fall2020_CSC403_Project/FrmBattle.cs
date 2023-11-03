@@ -30,6 +30,7 @@ namespace Fall2020_CSC403_Project
 
         public void Setup()
         {
+            base.FormClosing += FrmBattle_FormClosing;
             audioManager.PlaySound("enemy_interact_1");
             Thread.Sleep(2000);
             audioManager.PlaySoundLoop("battle_music");
@@ -123,6 +124,17 @@ namespace Fall2020_CSC403_Project
         {
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
+        }
+
+        //Called when the X button is pressed on the form
+        private void FrmBattle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            audioManager.StopSound("battle_music");
+            instance = null;
+            base.FormClosing -= FrmBattle_FormClosing;
+            audioManager.PlaySoundLoop("overworld_music");
+            enemy.AttackEvent -= PlayerDamage;
+            player.AttackEvent -= EnemyDamage;
         }
     }
 }
