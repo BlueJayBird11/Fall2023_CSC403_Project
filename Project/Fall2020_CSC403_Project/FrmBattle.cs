@@ -43,6 +43,8 @@ namespace Fall2020_CSC403_Project
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
             player.AttackEvent += EnemyDamage;
+            enemy.BlockEvent += PlayerDamage;
+            player.BlockEvent += EnemyDamage;
 
             // show health
             UpdateHealthBars();
@@ -109,6 +111,43 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        private void btnBlock_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            int roll = r.Next(-2, 1);
+            Console.WriteLine(roll);
+            player.OnBlock(roll);
+            if (enemy.Health > 0)
+            {
+                if (roll == 0)
+                {
+                    enemy.OnBlock(roll);
+                }
+                else 
+                {
+                    player.AlterHealth(roll);
+                }
+            }
+
+            UpdateHealthBars();
+            if (enemy.Health <= 0)
+            {
+                enemy.Die();
+                instance = null;
+                audioManager.StopSound("battle_music");
+                Close();
+                audioManager.PlaySoundLoop("overworld_music");
+            }
+            else if (player.Health <= 0)
+            {
+                player.Die();
+                instance = null;
+                audioManager.StopSound("battle_music");
+                Close();
+                audioManager.PlaySoundLoop("overworld_music");
+            }
+        }
+
         private void EnemyDamage(int amount)
         {
             enemy.AlterHealth(amount);
@@ -124,5 +163,6 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }
+
     }
 }
