@@ -356,8 +356,9 @@ namespace Fall2020_CSC403_Project
             // 
             // picInventory
             // 
+            this.picInventory.BackColor = System.Drawing.Color.Transparent;
             this.picInventory.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.inventory;
-            this.picInventory.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventory;
+            this.picInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picInventory.Location = new System.Drawing.Point(199, 20);
             this.picInventory.Margin = new System.Windows.Forms.Padding(4);
             this.picInventory.Name = "picInventory";
