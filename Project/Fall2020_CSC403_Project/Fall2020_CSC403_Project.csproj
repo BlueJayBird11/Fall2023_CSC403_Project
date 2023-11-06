@@ -157,6 +157,7 @@
     <Content Include="data\battle_music.wav" />
     <None Include="data\enemy_interact_1.wav" />
     <None Include="data\enemy_interact_2.wav" />
+    <None Include="data\inventory.jpg" />
     <Content Include="data\overworld_music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

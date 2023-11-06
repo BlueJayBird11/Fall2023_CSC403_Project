@@ -15,8 +15,8 @@ namespace Fall2020_CSC403_Project.code
 
         public bool IsShown = false;
 
-        int[] shownPoint = { 149, 567 };
-        int[] hidePoint = { 149, 1000 };
+        int[] shownPoint = { 199, 20 };
+        int[] hidePoint = { 199, -400 };
 
         // item list
         Item[] items = { };
@@ -25,6 +25,7 @@ namespace Fall2020_CSC403_Project.code
         {
             PictureBox = picturebox;
             DisableCollider();
+            HideBox();
         }
 
         public void ShowBox()

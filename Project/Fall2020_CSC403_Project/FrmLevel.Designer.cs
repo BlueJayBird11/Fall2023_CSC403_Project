@@ -56,6 +56,7 @@ namespace Fall2020_CSC403_Project
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picDialogueBox = new System.Windows.Forms.PictureBox();
             this.dialogLabel = new System.Windows.Forms.Label();
+            this.picInventory = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -74,6 +75,7 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDialogueBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -95,20 +97,14 @@ namespace Fall2020_CSC403_Project
             this.tmrUpdateInGameTime.Enabled = true;
             this.tmrUpdateInGameTime.Tick += new System.EventHandler(this.tmrUpdateInGameTime_Tick);
             // 
-            // tmrPlayerMove
+            // permLblPlayerHealth
             // 
-            this.tmrPlayerMove.Enabled = true;
-            this.tmrPlayerMove.Interval = 10;
-            this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
-            //
-            // permLblPlayerHealth 
-            //
-            this.permLblPlayerHealth.BackColor = System.Drawing.Color.Blue; // Set the background color
+            this.permLblPlayerHealth.BackColor = System.Drawing.Color.Blue;
             this.permLblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.permLblPlayerHealth.ForeColor = System.Drawing.Color.White; // Set text color
-            this.permLblPlayerHealth.Location = new System.Drawing.Point(170, 9); // Set the position
+            this.permLblPlayerHealth.ForeColor = System.Drawing.Color.White;
+            this.permLblPlayerHealth.Location = new System.Drawing.Point(170, 9);
             this.permLblPlayerHealth.Name = "permLblPlayerHealth";
-            this.permLblPlayerHealth.Size = new System.Drawing.Size(226, 20); // Set the size
+            this.permLblPlayerHealth.Size = new System.Drawing.Size(226, 20);
             this.permLblPlayerHealth.TabIndex = 3;
             // 
             // permLblPlayerHealthBack
@@ -119,6 +115,12 @@ namespace Fall2020_CSC403_Project
             this.permLblPlayerHealthBack.Name = "permLblPlayerHealthBack";
             this.permLblPlayerHealthBack.Size = new System.Drawing.Size(226, 20);
             this.permLblPlayerHealthBack.TabIndex = 4;
+            // 
+            // tmrPlayerMove
+            // 
+            this.tmrPlayerMove.Enabled = true;
+            this.tmrPlayerMove.Interval = 10;
+            this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
             // picEnemyCheeto
             // 
@@ -352,6 +354,17 @@ namespace Fall2020_CSC403_Project
             this.dialogLabel.Text = "dialogLabel";
             this.dialogLabel.Click += new System.EventHandler(this.dialogLabel_Click);
             // 
+            // picInventory
+            // 
+            this.picInventory.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.inventory;
+            this.picInventory.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventory;
+            this.picInventory.Location = new System.Drawing.Point(199, 20);
+            this.picInventory.Margin = new System.Windows.Forms.Padding(4);
+            this.picInventory.Name = "picInventory";
+            this.picInventory.Size = new System.Drawing.Size(1170, 366);
+            this.picInventory.TabIndex = 20;
+            this.picInventory.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -359,6 +372,7 @@ namespace Fall2020_CSC403_Project
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.Controls.Add(this.picInventory);
             this.Controls.Add(this.dialogLabel);
             this.Controls.Add(this.picDialogueBox);
             this.Controls.Add(this.picWall11);
@@ -407,8 +421,10 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDialogueBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
 
@@ -447,7 +463,7 @@ namespace Fall2020_CSC403_Project
     private System.Windows.Forms.PictureBox picWall11;
     private System.Windows.Forms.PictureBox picDialogueBox;
     private System.Windows.Forms.Label dialogLabel;
-
+        private PictureBox picInventory;
     }
 }
 

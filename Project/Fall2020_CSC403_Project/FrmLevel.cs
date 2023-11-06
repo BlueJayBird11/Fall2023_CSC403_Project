@@ -23,7 +23,8 @@ namespace Fall2020_CSC403_Project {
     private Dialogue koolaidManDialogue;
     private Dialogue poisonKoolaidDialogue;
     private Dialogue cheetoDialogue;
-        
+
+    private Inventory inventory;
 
     public FrmLevel() {
       InitializeComponent();
@@ -39,6 +40,9 @@ namespace Fall2020_CSC403_Project {
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
 
       dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel);
+      
+      inventory = new Inventory(CreatePosition(picInventory), CreateCollider(picInventory, PADDING), picInventory);
+
       audioManager = AudioManager.Instance;
       audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
       audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
@@ -235,7 +239,10 @@ namespace Fall2020_CSC403_Project {
 
                     player._movementBools[3] = true;
                     break;
-          
+
+        case Keys.I:
+          inventory.ToggleBox();
+                    break;
         default:
           player.ResetMoveSpeed();
           break;
