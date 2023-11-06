@@ -28,5 +28,20 @@ namespace Fall2020_CSC403_Project.code
             this.name = name;
             this.description = description;
         }
+        
+        public void PlaceItem(int x, int y)
+        {
+            PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
+        }
+
+        public String GetName()
+        {
+            return name;
+        }
+
+        public String GetDescription()
+        {
+            return description;
+        }
     }
 }

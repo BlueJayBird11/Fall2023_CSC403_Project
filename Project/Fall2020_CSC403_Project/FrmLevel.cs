@@ -25,6 +25,8 @@ namespace Fall2020_CSC403_Project {
     private Dialogue cheetoDialogue;
 
     private Inventory inventory;
+    private PotionOfHealing potionOfHealing;
+
 
     public FrmLevel() {
       InitializeComponent();
@@ -83,6 +85,9 @@ namespace Fall2020_CSC403_Project {
       cheetoDialogue = new Dialogue(cheetoLines, cheetoSpeeds, enemyCheeto);
 
       Game.player = player;
+
+      potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP", player);
+
       timeBegin = DateTime.Now;
     }
 
@@ -283,6 +288,11 @@ namespace Fall2020_CSC403_Project {
         private void dialogLabel_Click(object sender, EventArgs e)
         {
             ContinueDialogue();
+        }
+
+        private void pictHealthPotion_Click(object sender, EventArgs e)
+        {
+            potionOfHealing.UseEffect();
         }
     }
 }
