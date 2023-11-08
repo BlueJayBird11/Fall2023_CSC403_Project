@@ -27,11 +27,24 @@ namespace Fall2020_CSC403_Project.code
             PictureBox = picturebox;
             this.name = name;
             this.description = description;
+            HideItem();
         }
         
         public void PlaceItem(int x, int y)
         {
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
+        }
+
+        public void HideItem()
+        {
+            PictureBox.Visible = false;
+            PictureBox.Enabled = false;
+        }
+
+        public void ShowItem()
+        {
+            PictureBox.Visible = true;
+            PictureBox.Enabled = true;
         }
 
         public String GetName()

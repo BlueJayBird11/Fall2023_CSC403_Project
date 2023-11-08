@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project.code
 {
     public abstract class Potion : Item
     {
+        public bool used = false;
         public Potion(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description) : base(initPos, collider, picturebox, name, description)
         {
         }
@@ -34,6 +35,10 @@ namespace Fall2020_CSC403_Project.code
         {
             // throw new NotImplementedException();
             player.AlterHealth(10);
+            if (player.Health > 20)
+            {
+                player.AlterHealth(-(player.Health % 20));
+            }
         }
     }
 

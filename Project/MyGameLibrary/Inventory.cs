@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project.code
         int[] hidePoint = { 199, -400 };
 
         // item list
-        Item[] items = { };
+        List <Item> items = new List<Item> ();
 
         public Inventory(Vector2 initPos, Collider collider, PictureBox picturebox) : base(initPos, collider)
         {
@@ -46,10 +46,33 @@ namespace Fall2020_CSC403_Project.code
             if (IsShown)
             {
                 HideBox();
+                HideItems();
             }
             else
             {
                 ShowBox();
+                ShowItems();
+            }
+        }
+
+        public void AddItem(Item item)
+        {
+            items.Add(item);
+        }
+
+        public void ShowItems()
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                items[i].ShowItem();
+            }
+        }
+
+        public void HideItems()
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                items[i].HideItem();
             }
         }
 

@@ -87,6 +87,7 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
 
       potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP", player);
+      inventory.AddItem(potionOfHealing);
 
       timeBegin = DateTime.Now;
     }
