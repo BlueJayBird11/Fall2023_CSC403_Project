@@ -129,8 +129,8 @@ namespace Fall2020_CSC403_Project {
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+      lblInGameTime.Text = selector.GetLabels("TimeLabel", language) + time.ToString();
+      }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
