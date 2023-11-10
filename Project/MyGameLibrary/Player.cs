@@ -13,11 +13,19 @@ namespace Fall2020_CSC403_Project.code
         public bool[] _movementBools = new bool[] { false, false, false, false };
         public Vector2 Size { get; set; }
         PictureBox pictureBox { get; set; }
+        // float tempF = F 0.0;
+        float[] OgSize = { (float)0.0, (float)0.0 };
+        float[] NewSize = { (float)0.0, (float)0.0 };
 
         public Player(Vector2 initPos, Collider collider, Vector2 initSize, PictureBox picture) : base(initPos, collider)
         {
             Size = initSize;
             pictureBox = picture;
+            OgSize[0] = Size.x;
+            OgSize[1] = Size.y;
+
+            NewSize[0] = Size.x;
+            NewSize[1] = Size.y;
         }
 
         public int MovementValue()
@@ -37,12 +45,22 @@ namespace Fall2020_CSC403_Project.code
 
         public async void Stretch()
         {
-            float[] OgSize = { Size.x, Size.y };
-            for (float i = OgSize[0]; i < OgSize[0]+100; i += 1)
+            for (float i = NewSize[0]; i < NewSize[0]+100; i += 1)
             {
                 await StrechDelay();
                 pictureBox.Size = new System.Drawing.Size((int)i, (int)OgSize[1]);
             }
+            NewSize[0] = NewSize[0] + 100;
+        }
+
+        public async void Shrink()
+        {
+            for (float i = NewSize[0]; i > NewSize[0] - 100; i -= 1)
+            {
+                await StrechDelay();
+                pictureBox.Size = new System.Drawing.Size((int)i, (int)OgSize[1]);
+            }
+            NewSize[0] = NewSize[0] - 100;
         }
     }
 }
