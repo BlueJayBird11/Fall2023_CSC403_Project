@@ -26,9 +26,10 @@ namespace Fall2020_CSC403_Project {
 
     private Inventory inventory;
     private PotionOfHealing potionOfHealing;
+    private PotionOfBrightness potionOfBrightness;
 
 
-    public FrmLevel() {
+        public FrmLevel() {
       InitializeComponent();
     }
 
@@ -41,7 +42,8 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
 
-      dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel);
+      SoundPlayer textSound = new SoundPlayer(Resources.text_sfx);
+      dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel, textSound);
       
       inventory = new Inventory(CreatePosition(picInventory), CreateCollider(picInventory, PADDING), picInventory);
 
@@ -67,6 +69,8 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
+      Character bright = new Character(CreatePosition(picFlash), CreateCollider(picFlash, PADDING));
+
       // The default dialogue is for debugging 
       String[] defaultLines = { "Test Line 1", "Test\nLine 2" };
       int[] defaultLetterSpeeds = { 40, 10 };
@@ -87,9 +91,12 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
 
       potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP", player);
+            potionOfBrightness = new PotionOfBrightness(CreatePosition(picBrightPotion), CreateCollider(picBrightPotion, PADDING), picBrightPotion, "Brightness Potion", "Brightens up your day", bright, picFlash);
       inventory.AddItem(potionOfHealing);
+      inventory.AddItem(potionOfBrightness);
 
-      timeBegin = DateTime.Now;
+
+            timeBegin = DateTime.Now;
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -294,6 +301,11 @@ namespace Fall2020_CSC403_Project {
         private void pictHealthPotion_Click(object sender, EventArgs e)
         {
             potionOfHealing.UseEffect();
+        }
+
+        private void picBrightPotion_Click(object sender, EventArgs e)
+        {
+            potionOfBrightness.UseEffect();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,14 +47,30 @@ namespace Fall2020_CSC403_Project.code
     {
         int[] shownPoint = { 199, 20 };
         int[] showSize = { 1600, 1000 };
-        public PotionOfBrightness(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description) : base(initPos, collider, picturebox, name, description)
+
+        Character flash;
+        PictureBox picFlash;
+        Image original;
+
+        public PotionOfBrightness(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description, Character flash, PictureBox picFlash) : base(initPos, collider, picturebox, name, description)
         {
+            this.flash = flash;
+            this.picFlash = picFlash;
         }
 
         public override void UseEffect()
         {
-            MakeBoxVisable();
+            FlashScreen();
             DimBox(); // not finished
+        }
+
+        public void FlashScreen()
+        {
+            picFlash.Visible = true;
+            ChangeOpacity(255);
+            picFlash.Location = new Point(0,0);
+            picFlash.Size = new Size(1200, 1000);
+
         }
 
         public void MakeBoxVisable()
@@ -63,6 +80,44 @@ namespace Fall2020_CSC403_Project.code
             IsShown = true;
         }
 
+        public void ChangeOpacity(int val)
+        {
+            // Bitmap bmp = new Bitmap()
+            if (original == null)
+            {
+                original = (Bitmap)picFlash.BackgroundImage.Clone();
+            }
+            picFlash.BackColor = Color.Transparent;
+            picFlash.BackgroundImage = SetAlpha((Bitmap)original, val);
+
+
+            // e.Graphics.DrawImage(picFlash.Image, 50, 50, 100, 100);
+        }
+
+        static Bitmap SetAlpha(Bitmap bmpIn, int alpha)
+        {
+            Bitmap bmpOut = new Bitmap(bmpIn.Width, bmpIn.Height);
+            float a = alpha / 255f;
+            Rectangle r = new Rectangle(0, 0, bmpIn.Width, bmpIn.Height);
+
+            float[][] matrixItems = {
+            new float[] {1, 0, 0, 0, 0},
+            new float[] {0, 1, 0, 0, 0},
+            new float[] {0, 0, 1, 0, 0},
+            new float[] {0, 0, 0, a, 0},
+            new float[] {0, 0, 0, 0, 1}};
+
+            ColorMatrix colorMatrix = new ColorMatrix(matrixItems);
+
+            ImageAttributes imageAtt = new ImageAttributes();
+            imageAtt.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+            using (Graphics g = Graphics.FromImage(bmpOut))
+            g.DrawImage(bmpIn, r, r.X, r.Y, r.Width, r.Height, GraphicsUnit.Pixel, imageAtt);
+
+            return bmpOut;
+        }
+
         async Task WaitToDim()
         {
             await Task.Delay(1);
@@ -70,10 +125,12 @@ namespace Fall2020_CSC403_Project.code
 
         public async void DimBox()
         {
-            for (int i = 100; i > 0; i--)
+            for (int i = 255; i > 0; i-=10)
             {
+                ChangeOpacity(i);
                 await WaitToDim();
             }
+            picFlash.Visible = false;
         }
     }
 }

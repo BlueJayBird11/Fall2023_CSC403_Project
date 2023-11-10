@@ -38,11 +38,12 @@ namespace Fall2020_CSC403_Project
             this.permLblPlayerHealthBack = new System.Windows.Forms.Label();
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.dialogLabel = new System.Windows.Forms.Label();
+            this.picBrightPotion = new System.Windows.Forms.PictureBox();
+            this.pictHealthPotion = new System.Windows.Forms.PictureBox();
             this.picFlash = new System.Windows.Forms.PictureBox();
             this.picInventory = new System.Windows.Forms.PictureBox();
             this.picDialogueBox = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
-            this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
             this.picWall7 = new System.Windows.Forms.PictureBox();
             this.picWall1 = new System.Windows.Forms.PictureBox();
@@ -58,12 +59,13 @@ namespace Fall2020_CSC403_Project
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.pictHealthPotion = new System.Windows.Forms.PictureBox();
+            this.picWall2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picBrightPotion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictHealthPotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDialogueBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
@@ -79,7 +81,7 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictHealthPotion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -140,18 +142,43 @@ namespace Fall2020_CSC403_Project
             this.dialogLabel.Text = "dialogLabel";
             this.dialogLabel.Click += new System.EventHandler(this.dialogLabel_Click);
             // 
+            // picBrightPotion
+            // 
+            this.picBrightPotion.BackColor = System.Drawing.Color.Transparent;
+            this.picBrightPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion_bright;
+            this.picBrightPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBrightPotion.Location = new System.Drawing.Point(486, 64);
+            this.picBrightPotion.Margin = new System.Windows.Forms.Padding(4);
+            this.picBrightPotion.Name = "picBrightPotion";
+            this.picBrightPotion.Size = new System.Drawing.Size(84, 118);
+            this.picBrightPotion.TabIndex = 23;
+            this.picBrightPotion.TabStop = false;
+            this.picBrightPotion.Click += new System.EventHandler(this.picBrightPotion_Click);
+            // 
+            // pictHealthPotion
+            // 
+            this.pictHealthPotion.BackColor = System.Drawing.Color.Transparent;
+            this.pictHealthPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion_heal;
+            this.pictHealthPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictHealthPotion.Location = new System.Drawing.Point(312, 64);
+            this.pictHealthPotion.Margin = new System.Windows.Forms.Padding(4);
+            this.pictHealthPotion.Name = "pictHealthPotion";
+            this.pictHealthPotion.Size = new System.Drawing.Size(84, 118);
+            this.pictHealthPotion.TabIndex = 22;
+            this.pictHealthPotion.TabStop = false;
+            this.pictHealthPotion.Click += new System.EventHandler(this.pictHealthPotion_Click);
+            // 
             // picFlash
             // 
             this.picFlash.BackColor = System.Drawing.Color.Transparent;
             this.picFlash.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bright;
             this.picFlash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picFlash.Location = new System.Drawing.Point(-8, -14);
+            this.picFlash.Location = new System.Drawing.Point(3, 39);
             this.picFlash.Margin = new System.Windows.Forms.Padding(4);
             this.picFlash.Name = "picFlash";
-            this.picFlash.Size = new System.Drawing.Size(10, 131);
+            this.picFlash.Size = new System.Drawing.Size(100, 32);
             this.picFlash.TabIndex = 21;
             this.picFlash.TabStop = false;
-            this.picFlash.Visible = false;
             // 
             // picInventory
             // 
@@ -190,18 +217,6 @@ namespace Fall2020_CSC403_Project
             this.picWall11.Size = new System.Drawing.Size(219, 286);
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
-            // 
-            // picWall2
-            // 
-            this.picWall2.BackColor = System.Drawing.Color.Transparent;
-            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall2.Location = new System.Drawing.Point(735, 1);
-            this.picWall2.Margin = new System.Windows.Forms.Padding(4);
-            this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(625, 82);
-            this.picWall2.TabIndex = 16;
-            this.picWall2.TabStop = false;
             // 
             // picWall8
             // 
@@ -383,18 +398,17 @@ namespace Fall2020_CSC403_Project
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // pictHealthPotion
+            // picWall2
             // 
-            this.pictHealthPotion.BackColor = System.Drawing.Color.Transparent;
-            this.pictHealthPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion_heal;
-            this.pictHealthPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictHealthPotion.Location = new System.Drawing.Point(312, 64);
-            this.pictHealthPotion.Margin = new System.Windows.Forms.Padding(4);
-            this.pictHealthPotion.Name = "pictHealthPotion";
-            this.pictHealthPotion.Size = new System.Drawing.Size(84, 118);
-            this.pictHealthPotion.TabIndex = 22;
-            this.pictHealthPotion.TabStop = false;
-            this.pictHealthPotion.Click += new System.EventHandler(this.pictHealthPotion_Click);
+            this.picWall2.BackColor = System.Drawing.Color.Transparent;
+            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall2.Location = new System.Drawing.Point(735, 1);
+            this.picWall2.Margin = new System.Windows.Forms.Padding(4);
+            this.picWall2.Name = "picWall2";
+            this.picWall2.Size = new System.Drawing.Size(625, 82);
+            this.picWall2.TabIndex = 16;
+            this.picWall2.TabStop = false;
             // 
             // FrmLevel
             // 
@@ -403,8 +417,9 @@ namespace Fall2020_CSC403_Project
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
-            this.Controls.Add(this.pictHealthPotion);
             this.Controls.Add(this.picFlash);
+            this.Controls.Add(this.picBrightPotion);
+            this.Controls.Add(this.pictHealthPotion);
             this.Controls.Add(this.picInventory);
             this.Controls.Add(this.dialogLabel);
             this.Controls.Add(this.picDialogueBox);
@@ -436,11 +451,12 @@ namespace Fall2020_CSC403_Project
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picBrightPotion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictHealthPotion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDialogueBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
@@ -456,7 +472,7 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictHealthPotion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,6 +517,7 @@ namespace Fall2020_CSC403_Project
         private PictureBox picInventory;
         private PictureBox picFlash;
         private PictureBox pictHealthPotion;
+        private PictureBox picBrightPotion;
     }
 }
 
