@@ -89,11 +89,9 @@ namespace Fall2020_CSC403_Project.code
             }
             picFlash.BackColor = Color.Transparent;
             picFlash.BackgroundImage = SetAlpha((Bitmap)original, val);
-
-
-            // e.Graphics.DrawImage(picFlash.Image, 50, 50, 100, 100);
         }
 
+        // Found at: 
         static Bitmap SetAlpha(Bitmap bmpIn, int alpha)
         {
             Bitmap bmpOut = new Bitmap(bmpIn.Width, bmpIn.Height);
@@ -125,7 +123,7 @@ namespace Fall2020_CSC403_Project.code
 
         public async void DimBox()
         {
-            for (int i = 255; i > 0; i-=10)
+            for (int i = 255; i > 0; i-=3)
             {
                 ChangeOpacity(i);
                 await WaitToDim();

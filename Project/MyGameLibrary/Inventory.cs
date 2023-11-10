@@ -76,10 +76,10 @@ namespace Fall2020_CSC403_Project.code
             }
         }
 
-        public void DescribeItem()
+        public String[] DescribeItem(Item item)
         {
-            // Say the item name and description using the DialogueBox
-            ;
+            String[] itemDescription = { item.GetName(), item.GetDescription() };
+            return itemDescription;
         }
     }
 }

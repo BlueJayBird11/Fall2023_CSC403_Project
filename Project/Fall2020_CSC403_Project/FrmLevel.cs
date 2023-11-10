@@ -285,8 +285,27 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-    // Used to recognize mouse1 clicks 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void potion_Click(Potion potion, object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                potion.UseEffect();
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                String[] itemLines = inventory.DescribeItem(potion);
+                int[] itemSpeeds = { 40, 50 };
+                Dialogue itemDialogue = new Dialogue(itemLines, itemSpeeds, null);
+                dialogueBox.SetCurrentDialogue(itemDialogue);
+                if (!dialogueBox.IsShown)
+                {
+                    dialogueBox.ShowBox();
+                }
+            }
+        }
+
+        // Used to recognize mouse1 clicks 
+        private void lblInGameTime_Click(object sender, EventArgs e) {
     }
         private void picDialogueBox_Click(object sender, EventArgs e)
         {
@@ -300,12 +319,18 @@ namespace Fall2020_CSC403_Project {
 
         private void pictHealthPotion_Click(object sender, EventArgs e)
         {
-            potionOfHealing.UseEffect();
+            MouseEventArgs temp = (MouseEventArgs) e;
+            potion_Click(potionOfHealing, sender, temp);
+            // potionOfHealing.UseEffect();
         }
 
         private void picBrightPotion_Click(object sender, EventArgs e)
         {
-            potionOfBrightness.UseEffect();
+            MouseEventArgs temp = (MouseEventArgs) e;
+            potion_Click(potionOfBrightness, sender, temp);
         }
     }
+
+    
+    
 }

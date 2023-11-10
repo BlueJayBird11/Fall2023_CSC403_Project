@@ -179,6 +179,7 @@ namespace Fall2020_CSC403_Project
             this.picFlash.Size = new System.Drawing.Size(100, 32);
             this.picFlash.TabIndex = 21;
             this.picFlash.TabStop = false;
+            this.picFlash.Visible = false;
             // 
             // picInventory
             // 
