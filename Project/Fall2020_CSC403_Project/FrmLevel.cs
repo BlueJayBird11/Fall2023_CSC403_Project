@@ -37,7 +37,7 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), CreateSize(picPlayer), picPlayer);
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid);
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
@@ -107,6 +107,11 @@ namespace Fall2020_CSC403_Project {
       Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
       return new Collider(rect);
     }
+
+    private Vector2 CreateSize(PictureBox pic)
+        {
+            return new Vector2(pic.Size.Width, pic.Size.Height);
+        }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       if(player.MovementValue() <= 1)
@@ -216,12 +221,16 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
 
       bool characterMoving = false;
-            if (dialogueBox.IsShown)
+            if (dialogueBox.IsShown || inventory.IsShown)
             {
                 switch (e.KeyCode)
                 {
                     case Keys.Space:
                         ContinueDialogue();
+                        break;
+
+                    case Keys.I:
+                        inventory.ToggleBox();
                         break;
 
                     default:

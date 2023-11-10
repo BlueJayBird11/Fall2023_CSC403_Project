@@ -39,6 +39,7 @@ namespace Fall2020_CSC403_Project.code
             if (player.Health > 20)
             {
                 player.AlterHealth(-(player.Health % 20));
+                player.Stretch();
             }
         }
     }
