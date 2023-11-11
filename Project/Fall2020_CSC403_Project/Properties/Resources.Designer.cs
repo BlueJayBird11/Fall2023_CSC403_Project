@@ -168,6 +168,76 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Argentina {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Argentina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Bogard_Hall {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Bogard_Hall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Busan_South_Korea {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Busan_South_Korea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Keeny_Hall {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Keeny_Hall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Portland {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Portland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Tokyo_Japan {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Tokyo_Japan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Question_GeoGuesser_Warsaw_Poland {
+            get {
+                object obj = ResourceManager.GetObject("Question_GeoGuesser_Warsaw_Poland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wall {
             get {
                 object obj = ResourceManager.GetObject("wall", resourceCulture);

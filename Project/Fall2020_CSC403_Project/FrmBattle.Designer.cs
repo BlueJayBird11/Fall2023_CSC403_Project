@@ -34,6 +34,7 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.btnBlock = new System.Windows.Forms.Button();
+            this.btnParry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -140,13 +141,25 @@
             // 
             this.btnBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBlock.Location = new System.Drawing.Point(158, 543);
-            this.btnBlock.Name = "btnBlock";
             this.btnBlock.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBlock.Name = "btnBlock";
             this.btnBlock.Size = new System.Drawing.Size(171, 52);
             this.btnBlock.TabIndex = 8;
             this.btnBlock.Text = "Block";
             this.btnBlock.UseVisualStyleBackColor = true;
             this.btnBlock.Click += new System.EventHandler(this.btnBlock_Click);
+            // 
+            // btnParry
+            // 
+            this.btnParry.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParry.Location = new System.Drawing.Point(158, 602);
+            this.btnParry.Margin = new System.Windows.Forms.Padding(4);
+            this.btnParry.Name = "btnParry";
+            this.btnParry.Size = new System.Drawing.Size(171, 52);
+            this.btnParry.TabIndex = 8;
+            this.btnParry.Text = "Parry";
+            this.btnParry.UseVisualStyleBackColor = true;
+            this.btnParry.Click += new System.EventHandler(this.btnParry_Click);
             // 
             // FrmBattle
             // 
@@ -155,6 +168,7 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 742);
+            this.Controls.Add(this.btnParry);
             this.Controls.Add(this.btnBlock);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
@@ -187,6 +201,7 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-        private System.Windows.Forms.Button btnBlock;
+    private System.Windows.Forms.Button btnBlock;
+    private System.Windows.Forms.Button btnParry;
     }
 }
