@@ -47,7 +47,7 @@ namespace Fall2020_CSC403_Project {
       SoundPlayer textSound = new SoundPlayer(Resources.text_sfx);
       dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel, textSound);
       
-      inventory = new Inventory(CreatePosition(picInventory), CreateCollider(picInventory, PADDING), picInventory);
+      inventory = new Inventory(CreatePosition(picInventory), CreateCollider(picInventory, PADDING), picInventory, inventoryLabel);
 
       audioManager = AudioManager.Instance;
       audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
@@ -101,6 +101,8 @@ namespace Fall2020_CSC403_Project {
       inventory.AddItem(potionOfBrightness);
       inventory.AddItem(potionOfGrowth);
       inventory.AddItem(potionOfShrink);
+            inventory.SortItems();
+
 
       timeBegin = DateTime.Now;
     }

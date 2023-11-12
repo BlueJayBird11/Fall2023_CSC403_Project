@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project.code
     public class Item : Character
     {
         public Image Img { get; set; }
-        public PictureBox PictureBox { get; set; }
+        public PictureBox pictureBox { get; set; }
 
         public bool IsShown = false;
 
@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Item(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description) : base(initPos, collider)
         {
-            PictureBox = picturebox;
+            pictureBox = picturebox;
             this.name = name;
             this.description = description;
             HideItem();
@@ -32,19 +32,20 @@ namespace Fall2020_CSC403_Project.code
         
         public void PlaceItem(int x, int y)
         {
-            PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
+            Console.WriteLine(x + ", " + y);
+            pictureBox.Location = new Point(x, y);
         }
 
         public void HideItem()
         {
-            PictureBox.Visible = false;
-            PictureBox.Enabled = false;
+            pictureBox.Visible = false;
+            pictureBox.Enabled = false;
         }
 
         public void ShowItem()
         {
-            PictureBox.Visible = true;
-            PictureBox.Enabled = true;
+            pictureBox.Visible = true;
+            pictureBox.Enabled = true;
         }
 
         public String GetName()

@@ -109,8 +109,8 @@ namespace Fall2020_CSC403_Project.code
 
         public void MakeBoxVisable()
         {
-            PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
-            PictureBox.Size = new Size(showSize[0], showSize[1]);
+            pictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
+            pictureBox.Size = new Size(showSize[0], showSize[1]);
             IsShown = true;
         }
 

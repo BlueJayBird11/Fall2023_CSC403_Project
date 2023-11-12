@@ -20,10 +20,12 @@ namespace Fall2020_CSC403_Project.code
 
         // item list
         List <Item> items = new List<Item> ();
+        Label inventoryGuide { get; set; }
 
-        public Inventory(Vector2 initPos, Collider collider, PictureBox picturebox) : base(initPos, collider)
+        public Inventory(Vector2 initPos, Collider collider, PictureBox picturebox, Label inventoryGuide) : base(initPos, collider)
         {
             PictureBox = picturebox;
+            this.inventoryGuide = inventoryGuide;
             DisableCollider();
             HideBox();
         }
@@ -32,12 +34,14 @@ namespace Fall2020_CSC403_Project.code
         {
 
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
+            inventoryGuide.Visible = true;
             IsShown = true;
         }
 
         public void HideBox()
         {
             PictureBox.Location = new Point(hidePoint[0], hidePoint[1]);
+            inventoryGuide.Visible = false;
             IsShown = false;
         }
 
@@ -66,6 +70,7 @@ namespace Fall2020_CSC403_Project.code
             {
                 items[i].ShowItem();
             }
+            SortItems();
         }
 
         public void HideItems()
@@ -73,6 +78,14 @@ namespace Fall2020_CSC403_Project.code
             for (int i = 0; i < items.Count; i++)
             {
                 items[i].HideItem();
+            }
+        }
+
+        public void SortItems()
+        {
+            for (int i = 0;i < items.Count;i++)
+            {
+                items[i].PlaceItem(300+120*i, 64);
             }
         }
 

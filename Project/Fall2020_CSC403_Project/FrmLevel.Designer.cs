@@ -62,6 +62,7 @@ namespace Fall2020_CSC403_Project
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
+            this.inventoryLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picShrinkPotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStretchPotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlash)).BeginInit();
@@ -441,6 +442,19 @@ namespace Fall2020_CSC403_Project
             this.picWall2.TabIndex = 16;
             this.picWall2.TabStop = false;
             // 
+            // inventoryLabel
+            // 
+            this.inventoryLabel.AutoSize = true;
+            this.inventoryLabel.BackColor = System.Drawing.Color.Black;
+            this.inventoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryLabel.ForeColor = System.Drawing.Color.White;
+            this.inventoryLabel.Location = new System.Drawing.Point(306, 247);
+            this.inventoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.inventoryLabel.Name = "inventoryLabel";
+            this.inventoryLabel.Size = new System.Drawing.Size(346, 62);
+            this.inventoryLabel.TabIndex = 26;
+            this.inventoryLabel.Text = "Left click: Use Item\r\nRight click: Item description";
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -449,6 +463,7 @@ namespace Fall2020_CSC403_Project
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.picFlash);
+            this.Controls.Add(this.inventoryLabel);
             this.Controls.Add(this.picShrinkPotion);
             this.Controls.Add(this.picStretchPotion);
             this.Controls.Add(this.picBrightPotion);
@@ -555,6 +570,7 @@ namespace Fall2020_CSC403_Project
         private PictureBox picBrightPotion;
         private PictureBox picStretchPotion;
         private PictureBox picShrinkPotion;
+        private Label inventoryLabel;
     }
 }
 
