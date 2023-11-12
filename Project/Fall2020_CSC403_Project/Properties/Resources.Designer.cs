@@ -198,6 +198,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap potion_empty {
+            get {
+                object obj = ResourceManager.GetObject("potion_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap potion_grow {
             get {
                 object obj = ResourceManager.GetObject("potion_grow", resourceCulture);

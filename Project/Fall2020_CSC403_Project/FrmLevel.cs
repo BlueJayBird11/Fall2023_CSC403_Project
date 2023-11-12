@@ -95,7 +95,7 @@ namespace Fall2020_CSC403_Project {
       potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP", player);
       potionOfBrightness = new PotionOfBrightness(CreatePosition(picBrightPotion), CreateCollider(picBrightPotion, PADDING), picBrightPotion, "Brightness Potion", "Brightens up your day", bright, picFlash);
       potionOfGrowth = new PotionOfGrowth(CreatePosition(picStretchPotion), CreateCollider(picStretchPotion, PADDING), picStretchPotion, "Growth Potion", "Take this to grow big", player);
-      potionOfShrink = new PotionOfShrink(CreatePosition(picShrinkPotion), CreateCollider(picShrinkPotion, PADDING), picShrinkPotion, "Shrink Potion", "Take this to get smol\nWARNING, overuse will shink consumer out of existance", player);
+      potionOfShrink = new PotionOfShrink(CreatePosition(picShrinkPotion), CreateCollider(picShrinkPotion, PADDING), picShrinkPotion, "Shrink Potion", "Take this to get smol\nWARNING, overuse will shink consumer out of existence", player);
 
       inventory.AddItem(potionOfHealing);
       inventory.AddItem(potionOfBrightness);
@@ -284,6 +284,10 @@ namespace Fall2020_CSC403_Project {
             // this first if statement prevents the player from spamming the dialogue box, 
             // meaning the current line has to end before going to the next line
             if (dialogueBox.IsTyping)
+            {
+                ;
+            }
+            else if (!dialogueBox.IsShown)
             {
                 ;
             }

@@ -35,17 +35,27 @@ namespace Fall2020_CSC403_Project.code
         public override void UseEffect()
         {
             // throw new NotImplementedException();
+            if (used || player.Health >= 20)
+            {
+                return;
+            }
+
             player.AlterHealth(10);
+            
             if (player.Health > 20)
             {
                 player.AlterHealth(-(player.Health % 20));
             }
+            pictureBox.Visible = false;
+
+            used = true;
         }
     }
 
     public class PotionOfGrowth : Potion
     {
         Player player;
+
         public PotionOfGrowth(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description, Player player) : base(initPos, collider, picturebox, name, description)
         {
             this.player = player;

@@ -152,6 +152,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\potion_empty.png" />
     <None Include="data\potion_shrink.png" />
     <None Include="data\potion_grow.png" />
     <None Include="data\text_sfx.wav" />
