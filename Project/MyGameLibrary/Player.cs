@@ -18,6 +18,7 @@ namespace Fall2020_CSC403_Project.code
         float[] NewSize = { (float)0.0, (float)0.0 };
         int sizeState = 1;
         public bool sizeChanging = false;
+        const int PADDING = 7;
 
         public Player(Vector2 initPos, Collider collider, Vector2 initSize, PictureBox picture) : base(initPos, collider)
         {
@@ -45,6 +46,12 @@ namespace Fall2020_CSC403_Project.code
             await Task.Delay(1);
         }
 
+        private Collider CreateCollider(PictureBox pic, int padding)
+        {
+            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            return new Collider(rect);
+        }
+
         public async void Stretch()
         {
             sizeState+=2;
@@ -55,6 +62,8 @@ namespace Fall2020_CSC403_Project.code
                 pictureBox.Size = new System.Drawing.Size((int)i, (int)OgSize[1]);
                 
             }
+            Collider newCollider = CreateCollider(pictureBox, PADDING);
+            ChangeCollider(newCollider);
             NewSize[0] = NewSize[0] + 100;
             sizeChanging = false;
         }
@@ -72,6 +81,8 @@ namespace Fall2020_CSC403_Project.code
                 await StrechDelay();
                 pictureBox.Size = new System.Drawing.Size((int)i, (int)OgSize[1]);
             }
+            Collider newCollider = CreateCollider(pictureBox, PADDING);
+            ChangeCollider(newCollider);
             NewSize[0] = NewSize[0] - 50;
             sizeChanging = false;
         }

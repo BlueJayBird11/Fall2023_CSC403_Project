@@ -61,5 +61,10 @@ namespace Fall2020_CSC403_Project.code {
     {
        IsMoving = moving;
     }
+
+    public void ChangeCollider(Collider c)
+        {
+            this.Collider = c;
+        }
   }
 }
