@@ -16,6 +16,8 @@ namespace Fall2020_CSC403_Project.code
         // float tempF = F 0.0;
         float[] OgSize = { (float)0.0, (float)0.0 };
         float[] NewSize = { (float)0.0, (float)0.0 };
+        int sizeState = 1;
+        public bool sizeChanging = false;
 
         public Player(Vector2 initPos, Collider collider, Vector2 initSize, PictureBox picture) : base(initPos, collider)
         {
@@ -45,22 +47,33 @@ namespace Fall2020_CSC403_Project.code
 
         public async void Stretch()
         {
+            sizeState+=2;
+            sizeChanging = true;
             for (float i = NewSize[0]; i < NewSize[0]+100; i += 1)
             {
                 await StrechDelay();
                 pictureBox.Size = new System.Drawing.Size((int)i, (int)OgSize[1]);
+                
             }
             NewSize[0] = NewSize[0] + 100;
+            sizeChanging = false;
         }
 
         public async void Shrink()
         {
-            for (float i = NewSize[0]; i > NewSize[0] - 100; i -= 1)
+            sizeState--;
+            sizeChanging = true;
+            if (sizeState < 0) 
+            {
+                this.AlterHealth(-21);
+            }
+            for (float i = NewSize[0]; i > NewSize[0] - 50; i -= 1)
             {
                 await StrechDelay();
                 pictureBox.Size = new System.Drawing.Size((int)i, (int)OgSize[1]);
             }
-            NewSize[0] = NewSize[0] - 100;
+            NewSize[0] = NewSize[0] - 50;
+            sizeChanging = false;
         }
     }
 }

@@ -39,6 +39,39 @@ namespace Fall2020_CSC403_Project.code
             if (player.Health > 20)
             {
                 player.AlterHealth(-(player.Health % 20));
+            }
+        }
+    }
+
+    public class PotionOfGrowth : Potion
+    {
+        Player player;
+        public PotionOfGrowth(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description, Player player) : base(initPos, collider, picturebox, name, description)
+        {
+            this.player = player;
+        }
+
+        public override void UseEffect()
+        {
+            if (player.sizeChanging == false)
+            {
+                player.Stretch();
+            }
+        }
+    }
+
+    public class PotionOfShrink : Potion
+    {
+        Player player;
+        public PotionOfShrink(Vector2 initPos, Collider collider, PictureBox picturebox, string name, string description, Player player) : base(initPos, collider, picturebox, name, description)
+        {
+            this.player = player;
+        }
+
+        public override void UseEffect()
+        {
+            if (player.sizeChanging == false)
+            {
                 player.Shrink();
             }
         }

@@ -38,9 +38,11 @@ namespace Fall2020_CSC403_Project
             this.permLblPlayerHealthBack = new System.Windows.Forms.Label();
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.dialogLabel = new System.Windows.Forms.Label();
+            this.picShrinkPotion = new System.Windows.Forms.PictureBox();
+            this.picStretchPotion = new System.Windows.Forms.PictureBox();
+            this.picFlash = new System.Windows.Forms.PictureBox();
             this.picBrightPotion = new System.Windows.Forms.PictureBox();
             this.pictHealthPotion = new System.Windows.Forms.PictureBox();
-            this.picFlash = new System.Windows.Forms.PictureBox();
             this.picInventory = new System.Windows.Forms.PictureBox();
             this.picDialogueBox = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
@@ -60,9 +62,11 @@ namespace Fall2020_CSC403_Project
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picShrinkPotion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStretchPotion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrightPotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictHealthPotion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFlash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDialogueBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -142,6 +146,45 @@ namespace Fall2020_CSC403_Project
             this.dialogLabel.Text = "dialogLabel";
             this.dialogLabel.Click += new System.EventHandler(this.dialogLabel_Click);
             // 
+            // picShrinkPotion
+            // 
+            this.picShrinkPotion.BackColor = System.Drawing.Color.Transparent;
+            this.picShrinkPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion_shrink;
+            this.picShrinkPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picShrinkPotion.Location = new System.Drawing.Point(844, 64);
+            this.picShrinkPotion.Margin = new System.Windows.Forms.Padding(4);
+            this.picShrinkPotion.Name = "picShrinkPotion";
+            this.picShrinkPotion.Size = new System.Drawing.Size(84, 118);
+            this.picShrinkPotion.TabIndex = 25;
+            this.picShrinkPotion.TabStop = false;
+            this.picShrinkPotion.Click += new System.EventHandler(this.picShrinkPotion_Click);
+            // 
+            // picStretchPotion
+            // 
+            this.picStretchPotion.BackColor = System.Drawing.Color.Transparent;
+            this.picStretchPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion_grow;
+            this.picStretchPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picStretchPotion.Location = new System.Drawing.Point(664, 64);
+            this.picStretchPotion.Margin = new System.Windows.Forms.Padding(4);
+            this.picStretchPotion.Name = "picStretchPotion";
+            this.picStretchPotion.Size = new System.Drawing.Size(84, 118);
+            this.picStretchPotion.TabIndex = 24;
+            this.picStretchPotion.TabStop = false;
+            this.picStretchPotion.Click += new System.EventHandler(this.picStretchPotion_Click);
+            // 
+            // picFlash
+            // 
+            this.picFlash.BackColor = System.Drawing.Color.Transparent;
+            this.picFlash.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bright;
+            this.picFlash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picFlash.Location = new System.Drawing.Point(3, 39);
+            this.picFlash.Margin = new System.Windows.Forms.Padding(4);
+            this.picFlash.Name = "picFlash";
+            this.picFlash.Size = new System.Drawing.Size(100, 32);
+            this.picFlash.TabIndex = 21;
+            this.picFlash.TabStop = false;
+            this.picFlash.Visible = false;
+            // 
             // picBrightPotion
             // 
             this.picBrightPotion.BackColor = System.Drawing.Color.Transparent;
@@ -167,19 +210,6 @@ namespace Fall2020_CSC403_Project
             this.pictHealthPotion.TabIndex = 22;
             this.pictHealthPotion.TabStop = false;
             this.pictHealthPotion.Click += new System.EventHandler(this.pictHealthPotion_Click);
-            // 
-            // picFlash
-            // 
-            this.picFlash.BackColor = System.Drawing.Color.Transparent;
-            this.picFlash.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bright;
-            this.picFlash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picFlash.Location = new System.Drawing.Point(3, 39);
-            this.picFlash.Margin = new System.Windows.Forms.Padding(4);
-            this.picFlash.Name = "picFlash";
-            this.picFlash.Size = new System.Drawing.Size(100, 32);
-            this.picFlash.TabIndex = 21;
-            this.picFlash.TabStop = false;
-            this.picFlash.Visible = false;
             // 
             // picInventory
             // 
@@ -419,6 +449,8 @@ namespace Fall2020_CSC403_Project
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.picFlash);
+            this.Controls.Add(this.picShrinkPotion);
+            this.Controls.Add(this.picStretchPotion);
             this.Controls.Add(this.picBrightPotion);
             this.Controls.Add(this.pictHealthPotion);
             this.Controls.Add(this.picInventory);
@@ -452,9 +484,11 @@ namespace Fall2020_CSC403_Project
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picShrinkPotion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStretchPotion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrightPotion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictHealthPotion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFlash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDialogueBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
@@ -519,6 +553,8 @@ namespace Fall2020_CSC403_Project
         private PictureBox picFlash;
         private PictureBox pictHealthPotion;
         private PictureBox picBrightPotion;
+        private PictureBox picStretchPotion;
+        private PictureBox picShrinkPotion;
     }
 }
 

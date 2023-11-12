@@ -27,6 +27,8 @@ namespace Fall2020_CSC403_Project {
     private Inventory inventory;
     private PotionOfHealing potionOfHealing;
     private PotionOfBrightness potionOfBrightness;
+    private PotionOfGrowth potionOfGrowth;
+    private PotionOfShrink potionOfShrink;
 
 
         public FrmLevel() {
@@ -91,12 +93,16 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
 
       potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP", player);
-            potionOfBrightness = new PotionOfBrightness(CreatePosition(picBrightPotion), CreateCollider(picBrightPotion, PADDING), picBrightPotion, "Brightness Potion", "Brightens up your day", bright, picFlash);
+      potionOfBrightness = new PotionOfBrightness(CreatePosition(picBrightPotion), CreateCollider(picBrightPotion, PADDING), picBrightPotion, "Brightness Potion", "Brightens up your day", bright, picFlash);
+      potionOfGrowth = new PotionOfGrowth(CreatePosition(picStretchPotion), CreateCollider(picStretchPotion, PADDING), picStretchPotion, "Growth Potion", "Take this to grow big", player);
+      potionOfShrink = new PotionOfShrink(CreatePosition(picShrinkPotion), CreateCollider(picShrinkPotion, PADDING), picShrinkPotion, "Shrink Potion", "Take this to get smol\nWARNING, overuse will shink consumer out of existance", player);
+
       inventory.AddItem(potionOfHealing);
       inventory.AddItem(potionOfBrightness);
+      inventory.AddItem(potionOfGrowth);
+      inventory.AddItem(potionOfShrink);
 
-
-            timeBegin = DateTime.Now;
+      timeBegin = DateTime.Now;
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -338,8 +344,17 @@ namespace Fall2020_CSC403_Project {
             MouseEventArgs temp = (MouseEventArgs) e;
             potion_Click(potionOfBrightness, sender, temp);
         }
-    }
 
-    
-    
+        private void picStretchPotion_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs temp = (MouseEventArgs)e;
+            potion_Click(potionOfGrowth, sender, temp);
+        }
+
+        private void picShrinkPotion_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs temp = (MouseEventArgs)e;
+            potion_Click(potionOfShrink, sender, temp);
+        }   
+    }
 }
