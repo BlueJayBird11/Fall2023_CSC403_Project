@@ -92,7 +92,7 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
 
-      potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP", player);
+      potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP\nOnly has one use", player);
       potionOfBrightness = new PotionOfBrightness(CreatePosition(picBrightPotion), CreateCollider(picBrightPotion, PADDING), picBrightPotion, "Brightness Potion", "Brightens up your day", bright, picFlash);
       potionOfGrowth = new PotionOfGrowth(CreatePosition(picStretchPotion), CreateCollider(picStretchPotion, PADDING), picStretchPotion, "Growth Potion", "Take this to grow big", player);
       potionOfShrink = new PotionOfShrink(CreatePosition(picShrinkPotion), CreateCollider(picShrinkPotion, PADDING), picShrinkPotion, "Shrink Potion", "Take this to get smol\nWARNING, overuse will shink consumer out of existence", player);
