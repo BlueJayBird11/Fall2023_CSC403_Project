@@ -70,7 +70,6 @@ namespace Fall2020_CSC403_Project.code
             {
                 items[i].ShowItem();
             }
-            SortItems();
         }
 
         public void HideItems()

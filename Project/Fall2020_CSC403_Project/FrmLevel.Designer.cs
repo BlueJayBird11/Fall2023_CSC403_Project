@@ -63,6 +63,7 @@ namespace Fall2020_CSC403_Project
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.inventoryLabel = new System.Windows.Forms.Label();
+            this.labelControls = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picShrinkPotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStretchPotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlash)).BeginInit();
@@ -455,6 +456,19 @@ namespace Fall2020_CSC403_Project
             this.inventoryLabel.TabIndex = 26;
             this.inventoryLabel.Text = "Left click: Use Item\r\nRight click: Item description";
             // 
+            // labelControls
+            // 
+            this.labelControls.AutoSize = true;
+            this.labelControls.BackColor = System.Drawing.Color.Black;
+            this.labelControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControls.ForeColor = System.Drawing.Color.White;
+            this.labelControls.Location = new System.Drawing.Point(1404, 854);
+            this.labelControls.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelControls.Name = "labelControls";
+            this.labelControls.Size = new System.Drawing.Size(148, 31);
+            this.labelControls.TabIndex = 27;
+            this.labelControls.Text = "Inventory: i";
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -462,6 +476,7 @@ namespace Fall2020_CSC403_Project
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.Controls.Add(this.labelControls);
             this.Controls.Add(this.picFlash);
             this.Controls.Add(this.inventoryLabel);
             this.Controls.Add(this.picShrinkPotion);
@@ -571,6 +586,7 @@ namespace Fall2020_CSC403_Project
         private PictureBox picStretchPotion;
         private PictureBox picShrinkPotion;
         private Label inventoryLabel;
+        private Label labelControls;
     }
 }
 
