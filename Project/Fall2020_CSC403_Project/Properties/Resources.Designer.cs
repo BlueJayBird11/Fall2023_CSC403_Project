@@ -82,6 +82,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Blue___the_colour_008 {
+            get {
+                object obj = ResourceManager.GetObject("Blue___the_colour_008", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dialogue_box {
             get {
                 object obj = ResourceManager.GetObject("dialogue_box", resourceCulture);

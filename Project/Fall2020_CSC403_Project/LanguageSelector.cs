@@ -31,20 +31,20 @@ namespace Fall2020_CSC403_Project
             LatinLabel = new Dictionary<string, string>();
 
 
-            EnglishDialogue.Add("koolaidManDialogue", new List<string> { "You hear a a slight rumble...", "Koolaid Man breaks through the wall", "\"OHH, YEAH\"" });
+            EnglishDialogue.Add("koolaidManDialogue", new List<string> { "You hear a slight rumble...", "Koolaid Man breaks through the wall", "\"OHH, YEAH\"" });
             SpanishDialogue.Add("koolaidManDialogue", new List<string> { "Escuchas un leve retumbar...", "Koolaid Man rompe la pared", "\"¡OHH, SÍ!\"" });
-            GermanDialogue.Add("koolaidManDialogue", new List<string> { "German text placeholder Kool Aid Man", "German text placeholder 2 Kool Aid Man" });
-            LatinDialogue.Add("koolaidManDialogue", new List<string> { "Latin text placeholder Kool Aid Man", "Latin text placeholder 2 Kool Aid Man" });
+            GermanDialogue.Add("koolaidManDialogue", new List<string> { "Du hörst ein leichtes Grollen...", "Der Kool-Aid Mann bricht durch die Wand", "\"OHH, JA\"" });
+            LatinDialogue.Add("koolaidManDialogue", new List<string> { "Murmur parvum audis...", "Errumpit Homo Koolaidensis per parietem", "\"IO\""});
 
             EnglishDialogue.Add("poisonKoolaidDialogue", new List<string> { "neurotoxins" });
-            SpanishDialogue.Add("poisonKoolaidDialogue", new List<string> { "Spanish text placeholder Poison Packet" });
-            GermanDialogue.Add("poisonKoolaidDialogue", new List<string> { "German text placeholder Poison Packet" });
-            LatinDialogue.Add("poisonKoolaidDialogue", new List<string> { "Latin text placeholder Poison Packet" });
+            SpanishDialogue.Add("poisonKoolaidDialogue", new List<string> { "neurotoxinas" });
+            GermanDialogue.Add("poisonKoolaidDialogue", new List<string> { "Neurotoxinen" });
+            LatinDialogue.Add("poisonKoolaidDialogue", new List<string> { "neurotoxica" });
 
             EnglishDialogue.Add("cheetoDialogue", new List<string> { "HOW DO YOU EXPECT TO FIGHT", "WHEN YOUR HANDS ARE COVERED IN CHEETO DUST!" });
-            SpanishDialogue.Add("cheetoDialogue", new List<string> { "Spanish text placeholder Cheeto", "Spanish text placeholder 2 Cheeto" });
-            GermanDialogue.Add("cheetoDialogue", new List<string> { "German text placeholder Cheeto", "German text placeholder 2 Cheeto" });
-            LatinDialogue.Add("cheetoDialogue", new List<string> { "Latin text placeholder Cheeto", "Latin text placeholder 2 Cheeto" });
+            SpanishDialogue.Add("cheetoDialogue", new List<string> { "CÓMO PRETENDES PELEAR", "¡CUANDO TUS MANOS ESTÁN CUBIERTAS DE POLVO DE CHEETOS!" });
+            GermanDialogue.Add("cheetoDialogue", new List<string> { "WIE ERWARTEST DU ZU KÄMPFEN", "WENN DEINE HÄNDE MIT CHEETO-STAUB BEDECKT SIND!" });
+            LatinDialogue.Add("cheetoDialogue", new List<string> { "QUŌMODO INTENDAS PUGNĀRE", "CŪM MANŪS TUAE PULVERE CHEETONI TECTAE SINT!" });
 
             EnglishLabel.Add("TimeLabel", "Time: ");
             SpanishLabel.Add("TimeLabel", "Tiempo: ");
@@ -54,7 +54,7 @@ namespace Fall2020_CSC403_Project
             EnglishLabel.Add("AttackLabel", "Attack");
             SpanishLabel.Add("AttackLabel", "Atacar");
             GermanLabel.Add("AttackLabel", "Kampf");
-            LatinLabel.Add("AttackLabel", "Pugnat");
+            LatinLabel.Add("AttackLabel", "Aggredi");
 
         }
 
