@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Media;
+using System.Resources;
 
 namespace Fall2020_CSC403_Project.code {
     public class DialogueBox : Character {
@@ -24,9 +26,12 @@ namespace Fall2020_CSC403_Project.code {
 
         Dialogue currentDialogue;
 
-        public DialogueBox(Vector2 initPos, Collider collider, PictureBox picturebox, Label dialogueLabel) : base(initPos, collider) {
+        SoundPlayer textSound;
+
+        public DialogueBox(Vector2 initPos, Collider collider, PictureBox picturebox, Label dialogueLabel, SoundPlayer textSound) : base(initPos, collider) {
             PictureBox = picturebox;
             DialogueLabel = dialogueLabel;
+            this.textSound = textSound;
 
             HideBox();
             DisableCollider();
@@ -37,7 +42,6 @@ namespace Fall2020_CSC403_Project.code {
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
             DialogueLabel.Location = new Point(labelShownPoint[0], labelShownPoint[1]);
             IsShown = true;
-            // TypeText(defaultText);
         }
 
         public void HideBox() {
@@ -60,7 +64,8 @@ namespace Fall2020_CSC403_Project.code {
             this.currentDialogue = enemyDialogue;
         }
 
-        async Task TextDelay(int ms) { 
+        async Task TextDelay(int ms) {
+            // textSound.Play();
             await Task.Delay(ms);
         }
 
@@ -73,6 +78,7 @@ namespace Fall2020_CSC403_Project.code {
                 /*
                  * PLAY TEXT SOUND
                  */
+                // await PlaySound();
                 await TextDelay(currentDialogue.GetLineSpeed());
             }
             IsTyping = false;
