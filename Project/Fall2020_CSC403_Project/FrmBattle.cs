@@ -35,7 +35,7 @@ namespace Fall2020_CSC403_Project
                 new Questions
                 {
                     id = 1,
-                    options = new[] { "Keeny Hall", "Bogard Hall", "Wiley Tower", "IESB" },
+                    options = new[] { "Keeny Hall", "Bogard Hall", "Wyly Tower", "IESB" },
                     answer = "Keeny Hall",
                     image = global::Fall2020_CSC403_Project.Properties.Resources.Question_GeoGuesser_Keeny_Hall,
                 },
