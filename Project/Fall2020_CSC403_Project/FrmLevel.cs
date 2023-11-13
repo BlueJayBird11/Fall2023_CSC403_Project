@@ -314,6 +314,10 @@ namespace Fall2020_CSC403_Project {
             }
             else if (e.Button == MouseButtons.Right)
             {
+                if (dialogueBox.IsShown)
+                {
+                    return;
+                }
                 String[] itemLines = inventory.DescribeItem(potion);
                 int[] itemSpeeds = { 40, 50 };
                 Dialogue itemDialogue = new Dialogue(itemLines, itemSpeeds, null);
