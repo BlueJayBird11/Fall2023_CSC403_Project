@@ -204,4 +204,5 @@
     private System.Windows.Forms.Button btnBlock;
     private System.Windows.Forms.Button btnParry;
     }
+   
 }
