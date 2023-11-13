@@ -135,7 +135,7 @@ namespace Fall2020_CSC403_Project.code
             picFlash.BackgroundImage = SetAlpha((Bitmap)original, val);
         }
 
-        // Function found at: https://stackoverflow.com/questions/44749869/picturebox-slider-control-transparency
+        // Credit: function found at: https://stackoverflow.com/questions/44749869/picturebox-slider-control-transparency
         static Bitmap SetAlpha(Bitmap bmpIn, int alpha)
         {
             Bitmap bmpOut = new Bitmap(bmpIn.Width, bmpIn.Height);
