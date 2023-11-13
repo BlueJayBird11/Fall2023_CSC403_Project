@@ -169,6 +169,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\potion_empty.png" />
+    <None Include="data\potion_shrink.png" />
+    <None Include="data\potion_grow.png" />
+    <None Include="data\text_sfx.wav" />
+    <None Include="data\potion_bright.png" />
+    <None Include="data\bright.png" />
+    <Content Include="data\dialogueBox.jpg" />
+    <None Include="data\potion_heal.png" />
     <None Include="data\Blue---the-colour-008.jpg" />
     <Content Include="data\dialogueBox.jpg" />
     <None Include="Resources\Question-GeoGuesser-Tokyo-Japan.jpg" />
@@ -182,6 +190,7 @@
     <Content Include="data\battle_music.wav" />
     <None Include="data\enemy_interact_1.wav" />
     <None Include="data\enemy_interact_2.wav" />
+    <None Include="data\inventory.jpg" />
     <Content Include="data\overworld_music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

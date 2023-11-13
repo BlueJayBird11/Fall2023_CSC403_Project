@@ -24,11 +24,16 @@ namespace Fall2020_CSC403_Project {
     private Dialogue koolaidManDialogue;
     private Dialogue poisonKoolaidDialogue;
     private Dialogue cheetoDialogue;
-
+    
+    private Inventory inventory;
+    private PotionOfHealing potionOfHealing;
+    private PotionOfBrightness potionOfBrightness;
+    private PotionOfGrowth potionOfGrowth;
+    private PotionOfShrink potionOfShrink;
+    
     private LanguageSelector selector;
     private string language;
         
-
     public FrmLevel(LanguageSelector selector, string language) {
         InitializeComponent();
         this.selector = selector;
@@ -39,12 +44,16 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), CreateSize(picPlayer), picPlayer);
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid);
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
 
-      dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel);
+      SoundPlayer textSound = new SoundPlayer(Resources.text_sfx);
+      dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel, textSound);
+      
+      inventory = new Inventory(CreatePosition(picInventory), CreateCollider(picInventory, PADDING), picInventory, inventoryLabel);
+
       audioManager = AudioManager.Instance;
       audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
       audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
@@ -67,6 +76,8 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
+      Character bright = new Character(CreatePosition(picFlash), CreateCollider(picFlash, PADDING));
+
       // The default dialogue is for debugging 
       String[] defaultLines = { "Test Line 1", "Test\nLine 2" };
       int[] defaultLetterSpeeds = { 40, 10 };
@@ -85,6 +96,19 @@ namespace Fall2020_CSC403_Project {
       cheetoDialogue = new Dialogue(cheetoLines.ToArray(), cheetoSpeeds, enemyCheeto);
 
       Game.player = player;
+
+      potionOfHealing = new PotionOfHealing(CreatePosition(pictHealthPotion), CreateCollider(pictHealthPotion, PADDING), pictHealthPotion, "Healing Potion", "Restores 10 HP\nOnly has one use", player);
+      potionOfBrightness = new PotionOfBrightness(CreatePosition(picBrightPotion), CreateCollider(picBrightPotion, PADDING), picBrightPotion, "Brightness Potion", "Brightens up your day", bright, picFlash);
+      potionOfGrowth = new PotionOfGrowth(CreatePosition(picStretchPotion), CreateCollider(picStretchPotion, PADDING), picStretchPotion, "Growth Potion", "Take this to grow big", player);
+      potionOfShrink = new PotionOfShrink(CreatePosition(picShrinkPotion), CreateCollider(picShrinkPotion, PADDING), picShrinkPotion, "Shrink Potion", "Take this to get smol\nWARNING, overuse will shink consumer out of existence", player);
+
+      inventory.AddItem(potionOfHealing);
+      inventory.AddItem(potionOfBrightness);
+      inventory.AddItem(potionOfGrowth);
+      inventory.AddItem(potionOfShrink);
+            inventory.SortItems();
+
+
       timeBegin = DateTime.Now;
     }
 
@@ -96,6 +120,11 @@ namespace Fall2020_CSC403_Project {
       Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
       return new Collider(rect);
     }
+
+    private Vector2 CreateSize(PictureBox pic)
+        {
+            return new Vector2(pic.Size.Width, pic.Size.Height);
+        }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       if(player.MovementValue() <= 1)
@@ -205,12 +234,16 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
 
       bool characterMoving = false;
-            if (dialogueBox.IsShown)
+            if (dialogueBox.IsShown || inventory.IsShown)
             {
                 switch (e.KeyCode)
                 {
                     case Keys.Space:
                         ContinueDialogue();
+                        break;
+
+                    case Keys.I:
+                        inventory.ToggleBox();
                         break;
 
                     default:
@@ -241,7 +274,10 @@ namespace Fall2020_CSC403_Project {
 
                     player._movementBools[3] = true;
                     break;
-          
+
+        case Keys.I:
+          inventory.ToggleBox();
+                    break;
         default:
           player.ResetMoveSpeed();
           break;
@@ -253,6 +289,10 @@ namespace Fall2020_CSC403_Project {
             // this first if statement prevents the player from spamming the dialogue box, 
             // meaning the current line has to end before going to the next line
             if (dialogueBox.IsTyping)
+            {
+                ;
+            }
+            else if (!dialogueBox.IsShown)
             {
                 ;
             }
@@ -271,8 +311,31 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-    // Used to recognize mouse1 clicks 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void potion_Click(Potion potion, object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                potion.UseEffect();
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                if (dialogueBox.IsShown)
+                {
+                    return;
+                }
+                String[] itemLines = inventory.DescribeItem(potion);
+                int[] itemSpeeds = { 40, 50 };
+                Dialogue itemDialogue = new Dialogue(itemLines, itemSpeeds, null);
+                dialogueBox.SetCurrentDialogue(itemDialogue);
+                if (!dialogueBox.IsShown)
+                {
+                    dialogueBox.ShowBox();
+                }
+            }
+        }
+
+        // Used to recognize mouse1 clicks 
+        private void lblInGameTime_Click(object sender, EventArgs e) {
     }
         private void picDialogueBox_Click(object sender, EventArgs e)
         {
@@ -283,5 +346,30 @@ namespace Fall2020_CSC403_Project {
         {
             ContinueDialogue();
         }
+
+        private void pictHealthPotion_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs temp = (MouseEventArgs) e;
+            potion_Click(potionOfHealing, sender, temp);
+            // potionOfHealing.UseEffect();
+        }
+
+        private void picBrightPotion_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs temp = (MouseEventArgs) e;
+            potion_Click(potionOfBrightness, sender, temp);
+        }
+
+        private void picStretchPotion_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs temp = (MouseEventArgs)e;
+            potion_Click(potionOfGrowth, sender, temp);
+        }
+
+        private void picShrinkPotion_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs temp = (MouseEventArgs)e;
+            potion_Click(potionOfShrink, sender, temp);
+        }   
     }
 }
