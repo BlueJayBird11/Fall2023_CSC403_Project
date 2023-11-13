@@ -113,8 +113,8 @@ namespace Fall2020_CSC403_Project
             // 
             this.permLblPlayerHealth.BackColor = System.Drawing.Color.Blue;
             this.permLblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.permLblPlayerHealth.ForeColor = System.Drawing.Color.White;
-            this.permLblPlayerHealth.Location = new System.Drawing.Point(170, 9);
+            this.permLblPlayerHealth.ForeColor = System.Drawing.Color.White; // Set text color
+            this.permLblPlayerHealth.Location = new System.Drawing.Point(200, 9); // Set the position
             this.permLblPlayerHealth.Name = "permLblPlayerHealth";
             this.permLblPlayerHealth.Size = new System.Drawing.Size(226, 20);
             this.permLblPlayerHealth.TabIndex = 3;
@@ -123,7 +123,7 @@ namespace Fall2020_CSC403_Project
             // 
             this.permLblPlayerHealthBack.BackColor = System.Drawing.Color.Black;
             this.permLblPlayerHealthBack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.permLblPlayerHealthBack.Location = new System.Drawing.Point(170, 9);
+            this.permLblPlayerHealthBack.Location = new System.Drawing.Point(200, 9);
             this.permLblPlayerHealthBack.Name = "permLblPlayerHealthBack";
             this.permLblPlayerHealthBack.Size = new System.Drawing.Size(226, 20);
             this.permLblPlayerHealthBack.TabIndex = 4;

@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -23,18 +24,22 @@ namespace Fall2020_CSC403_Project {
     private Dialogue koolaidManDialogue;
     private Dialogue poisonKoolaidDialogue;
     private Dialogue cheetoDialogue;
-
+    
     private Inventory inventory;
     private PotionOfHealing potionOfHealing;
     private PotionOfBrightness potionOfBrightness;
     private PotionOfGrowth potionOfGrowth;
     private PotionOfShrink potionOfShrink;
-
-
-        public FrmLevel() {
-      InitializeComponent();
+    
+    private LanguageSelector selector;
+    private string language;
+        
+    public FrmLevel(LanguageSelector selector, string language) {
+        InitializeComponent();
+        this.selector = selector;
+        this.language = language;
     }
-
+    
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
@@ -78,17 +83,17 @@ namespace Fall2020_CSC403_Project {
       int[] defaultLetterSpeeds = { 40, 10 };
       defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds, null);
 
-      String[] koolaidManLines = { "You hear a a slight rumble...", "Koolaid Man breaks through the wall", "\"OHH, YEAH\"" };
+      List<string> koolaidManLines = selector.GetDialogue("koolaidManDialogue", language);
       int[] koolaidManSpeeds = { 40, 40, 120 };
-      koolaidManDialogue = new Dialogue(koolaidManLines, koolaidManSpeeds, bossKoolaid);
+      koolaidManDialogue = new Dialogue(koolaidManLines.ToArray(), koolaidManSpeeds, bossKoolaid);
 
-      String[] poisonKoolaidLines = { "neurotoxins" };
+      List<string> poisonKoolaidLines = selector.GetDialogue("poisonKoolaidDialogue", language);
       int[] poisonKoolaidSpeeds = { 40 };
-      poisonKoolaidDialogue = new Dialogue(poisonKoolaidLines, poisonKoolaidSpeeds, enemyPoisonPacket);
+      poisonKoolaidDialogue = new Dialogue(poisonKoolaidLines.ToArray(), poisonKoolaidSpeeds, enemyPoisonPacket);
 
-      String[] cheetoLines = { "HOW DO YOU EXPECT TO FIGHT", "WHEN YOUR HANDS ARE COVERED IN CHEETO DUST!" };
+      List<string> cheetoLines = selector.GetDialogue("cheetoDialogue", language);
       int[] cheetoSpeeds = { 40, 50 };
-      cheetoDialogue = new Dialogue(cheetoLines, cheetoSpeeds, enemyCheeto);
+      cheetoDialogue = new Dialogue(cheetoLines.ToArray(), cheetoSpeeds, enemyCheeto);
 
       Game.player = player;
 
@@ -153,8 +158,8 @@ namespace Fall2020_CSC403_Project {
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+      lblInGameTime.Text = selector.GetLabels("TimeLabel", language) + time.ToString();
+      }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player

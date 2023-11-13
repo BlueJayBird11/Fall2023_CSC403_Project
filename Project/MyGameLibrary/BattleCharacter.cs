@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project.code {
     private float strength;
 
     public event Action<int> AttackEvent;
+    public event Action<int> BlockEvent;
 
     public virtual void Die() { }
 
@@ -24,6 +25,10 @@ namespace Fall2020_CSC403_Project.code {
 
     public void OnAttack(int amount) {
       AttackEvent((int)(amount * strength));
+    }
+
+    public void OnBlock(int amount) {
+      BlockEvent((int)(amount * strength));
     }
 
     public void AlterHealth(int amount) {
